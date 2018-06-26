@@ -16,6 +16,9 @@ def get_character_movies_from_api(character)
   end
   # collect those film API urls, make a web request to each URL to get the info
   #  for that film
+
+  #Alternative Solution:
+
   # movie_titles = []
   # all_films.each do |links|
   #   movie_page = RestClient.get(links)
@@ -35,7 +38,7 @@ def movie_titles(all_films)
   all_films.each do |links|
     movie_page = RestClient.get(links)
     movie_hash = JSON.parse(movie_page)
-    movie_titles << movie_hash["director"]
+    movie_titles << movie_hash["title"]
   end
   movie_titles
 end
